@@ -15,6 +15,7 @@ public class Monster extends Character {
 		this.coolDownTime = coolDownTime;
 		this.probabilityAttack = probabilityAttack;
 		this.probabilityDamage = probabilityDamage;
+		setVisible(false);
 	}
 
 	public int getDamage() {
