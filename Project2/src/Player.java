@@ -8,6 +8,7 @@ public class Player extends Character {
 		super("Player", 100);
 		currentHealth = 100;
 		gold = 0;
+		setVisible(true);
 	}
 
 	public int getCurrentHealth() {
