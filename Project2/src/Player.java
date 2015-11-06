@@ -4,9 +4,9 @@ public class Player extends Character {
 	private int currentHealth;
 	private int gold;
 	
-	public Player(int health) {
-		super("Player", health);
-		currentHealth = health;
+	public Player() {
+		super("Player", 100);
+		currentHealth = 100;
 		gold = 0;
 	}
 
