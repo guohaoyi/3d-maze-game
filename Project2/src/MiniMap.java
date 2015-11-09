@@ -23,16 +23,44 @@ public class MiniMap extends JComponent {
 		for (int i = 0; i < maze.getRow(); i++) {
 			for (int j = 0; j < maze.getCol(); j++) {
 				if (rooms[j][i].isNorth()) {
+					if (rooms[j][i].getTexture().equals("texture2"))
+						g.setColor(Color.green);
+					if (rooms[j][i].getTexture().equals("texture3"))
+						g.setColor(Color.magenta);
+					if (rooms[j][i].getTexture().equals("texture4"))
+						g.setColor(Color.blue);
 					g.drawLine(x + width * i, y + height * j, x + width + width * i, y + height * j);
+					g.setColor(Color.black);
 				}
 				if (rooms[j][i].isEast()) {
+					if (rooms[j][i].getTexture().equals("texture2"))
+						g.setColor(Color.green);
+					if (rooms[j][i].getTexture().equals("texture3"))
+						g.setColor(Color.magenta);
+					if (rooms[j][i].getTexture().equals("texture4"))
+						g.setColor(Color.blue);
 					g.drawLine(x + width + width * i, y + height * j, x + width + width * i, y + height + height * j);
+					g.setColor(Color.black);
 				}
 				if (rooms[j][i].isSouth()) {
+					if (rooms[j][i].getTexture().equals("texture2"))
+						g.setColor(Color.green);
+					if (rooms[j][i].getTexture().equals("texture3"))
+						g.setColor(Color.magenta);
+					if (rooms[j][i].getTexture().equals("texture4"))
+						g.setColor(Color.blue);
 					g.drawLine(x + width * i, y + height + height * j, x + width + width * i, y + height + height * j);
+					g.setColor(Color.black);
 				}
 				if (rooms[j][i].isWest()) {
+					if (rooms[j][i].getTexture().equals("texture2"))
+						g.setColor(Color.green);
+					if (rooms[j][i].getTexture().equals("texture3"))
+						g.setColor(Color.magenta);
+					if (rooms[j][i].getTexture().equals("texture4"))
+						g.setColor(Color.blue);
 					g.drawLine(x + width * i, y + height * j, x + width * i, y + height + height * j);
+					g.setColor(Color.black);
 				}
 				if (rooms[j][i].getMonster() != null)
 					g.drawString(rooms[j][i].getMonster().toString(), x + 2 + width * i, y + 12 + height * j);
