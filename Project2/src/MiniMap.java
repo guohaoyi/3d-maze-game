@@ -19,9 +19,21 @@ public class MiniMap extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
-		g.drawRect(x, y, 200, 200);
+		//g.drawRect(x, y, 200, 200);
 		for (int i = 0; i < maze.getRow(); i++) {
 			for (int j = 0; j < maze.getCol(); j++) {
+				if (rooms[j][i].isNorth()) {
+					g.drawLine(x + width * i, y + height * j, x + width + width * i, y + height * j);
+				}
+				if (rooms[j][i].isEast()) {
+					g.drawLine(x + width + width * i, y + height * j, x + width + width * i, y + height + height * j);
+				}
+				if (rooms[j][i].isSouth()) {
+					g.drawLine(x + width * i, y + height + height * j, x + width + width * i, y + height + height * j);
+				}
+				if (rooms[j][i].isWest()) {
+					g.drawLine(x + width * i, y + height * j, x + width * i, y + height + height * j);
+				}
 				if (rooms[j][i].getMonster() != null)
 					g.drawString(rooms[j][i].getMonster().toString(), x + 2 + width * i, y + 12 + height * j);
 				if (rooms[j][i].getTreasure() != null) {
@@ -43,7 +55,7 @@ public class MiniMap extends JComponent {
 						g.setColor(Color.black);
 					}
 				}
-				g.drawRect(x + width * i, y + height * j, width, height);
+				//g.drawRect(x + width * i, y + height * j, width, height);
 			}
 		}
 		
