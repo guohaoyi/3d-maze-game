@@ -5,7 +5,7 @@ public class Player extends Character {
 	private int gold;
 	
 	public Player() {
-		super("Player", 100);
+		super(100);
 		currentHealth = 100;
 		gold = 0;
 		setVisible(true);

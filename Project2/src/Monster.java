@@ -2,20 +2,68 @@ import javax.swing.ImageIcon;
 
 public class Monster extends Character {
 	
+	private String name;
 	private ImageIcon image1;
 	private ImageIcon image2;
+	private int xCoordinate;
+	private int yCoordinate;
 	private int damage;
 	private int coolDownTime;
 	private int probabilityAttack;
 	private int probabilityDamage;
 	
-	public Monster(String name, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage) {
-		super(name, health);
+	public Monster(String name, String image1, String image2, int xCoordinate, int yCoordinate, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage) {
+		super(health);
+		this.name = name;
+		this.image1 = new ImageIcon("bin/resources/monsters/" + image1);
+		this.image2 = new ImageIcon("bin/resources/monsters/" + image2);
+		this.xCoordinate = xCoordinate;
+		this.yCoordinate = yCoordinate;
 		this.damage = damage;
 		this.coolDownTime = coolDownTime;
 		this.probabilityAttack = probabilityAttack;
 		this.probabilityDamage = probabilityDamage;
 		setVisible(false);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ImageIcon getImage1() {
+		return image1;
+	}
+
+	public void setImage1(ImageIcon image1) {
+		this.image1 = image1;
+	}
+
+	public ImageIcon getImage2() {
+		return image2;
+	}
+
+	public void setImage2(ImageIcon image2) {
+		this.image2 = image2;
+	}
+
+	public int getxCoordinate() {
+		return xCoordinate;
+	}
+
+	public void setxCoordinate(int xCoordinate) {
+		this.xCoordinate = xCoordinate;
+	}
+
+	public int getyCoordinate() {
+		return yCoordinate;
+	}
+
+	public void setyCoordinate(int yCoordinate) {
+		this.yCoordinate = yCoordinate;
 	}
 
 	public int getDamage() {

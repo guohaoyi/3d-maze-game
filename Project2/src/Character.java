@@ -1,21 +1,11 @@
 
 public class Character {
 	
-	private String name;
 	private int health;
 	private boolean visible;
 	
-	public Character(String name, int health) {
-		this.name = name;
+	public Character(int health) {
 		this.health = health;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getHealth() {
