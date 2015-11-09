@@ -19,7 +19,6 @@ public class MiniMap extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
-		//g.drawRect(x, y, 200, 200);
 		for (int i = 0; i < maze.getRow(); i++) {
 			for (int j = 0; j < maze.getCol(); j++) {
 				if (rooms[j][i].isNorth()) {
@@ -83,7 +82,6 @@ public class MiniMap extends JComponent {
 						g.setColor(Color.black);
 					}
 				}
-				//g.drawRect(x + width * i, y + height * j, width, height);
 			}
 		}
 		
