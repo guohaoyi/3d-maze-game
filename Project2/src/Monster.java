@@ -97,6 +97,10 @@ public class Monster extends Character {
 	public void setProbabilityDamage(int probabilityDamage) {
 		this.probabilityDamage = probabilityDamage;
 	}
+	
+	public String toString() {
+		return name.substring(0, 1);
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

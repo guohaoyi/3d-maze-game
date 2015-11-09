@@ -85,6 +85,10 @@ public class Treasure {
 	public void setyCoordinate(int yCoordinate) {
 		this.yCoordinate = yCoordinate;
 	}
+	
+	public String toString() {
+		return name.substring(0, 1);
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
