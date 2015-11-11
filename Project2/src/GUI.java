@@ -22,6 +22,12 @@ public class GUI extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
+		topPanel = new JPanel();
+		topPanel.setPreferredSize(new Dimension(800, 578));
+		topPanel.setBackground(Color.gray);
+		topPanel.setLayout(new BorderLayout());
+		this.add(topPanel, BorderLayout.NORTH);
+		
 		bottomPanel = new JPanel();
 		bottomPanel.setPreferredSize(new Dimension(800, 200));
 		bottomPanel.setBackground(Color.magenta);
@@ -32,10 +38,10 @@ public class GUI extends JFrame {
 		miniMapPanel.setPreferredSize(new Dimension(200, 200));
 		miniMapPanel.setBackground(Color.white);
 		miniMapPanel.setLayout(new BorderLayout());
-		bottomPanel.add(miniMapPanel,BorderLayout.EAST);
+		bottomPanel.add(miniMapPanel, BorderLayout.EAST);
 
 		MiniMap miniMap = new MiniMap(maze);
-		miniMapPanel.add(miniMap,BorderLayout.CENTER);
+		miniMapPanel.add(miniMap, BorderLayout.CENTER);
 		
 		this.setVisible(true);
 	}
