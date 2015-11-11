@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JComponent;
@@ -8,14 +9,15 @@ public class MiniMap extends JComponent {
 	private Maze maze;
 	private Room[][] rooms;
 	private int width, height;
-	private final int x = 550;
-	private final int y = 500;
+	private final int x = 3;
+	private final int y = 3;
 	
 	public MiniMap(Maze startMaze) {
 		maze = startMaze;
 		rooms = startMaze.getRooms();
 		width = 200 / startMaze.getRow();
 		height = 200 / startMaze.getCol();
+		//this.setPreferredSize(new Dimension(350,200));
 	}
 	
 	public void paint(Graphics g) {
