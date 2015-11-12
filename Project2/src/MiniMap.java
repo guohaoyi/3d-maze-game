@@ -9,8 +9,8 @@ public class MiniMap extends JComponent {
 	private Maze maze;
 	private Room[][] rooms;
 	private int width, height;
-	private final int x = 3;
-	private final int y = 3;
+	private final int x = 2;
+	private final int y = 2;
 	
 	public MiniMap(Maze startMaze) {
 		maze = startMaze;
