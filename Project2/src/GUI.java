@@ -22,6 +22,7 @@ public class GUI extends JFrame {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		new GUI();
+		/*
 		BufferedImage image = ImageIO.read(new File("bin/button.png"));
 
 	    int w = image.getWidth();
@@ -35,6 +36,7 @@ public class GUI extends JFrame {
 	    System.out.println(c.getGreen()); // = (dataBuffInt[100] >> 8)  & 0xFF
 	    System.out.println(c.getBlue());  // = (dataBuffInt[100] >> 0)  & 0xFF
 	    System.out.println(c.getAlpha()); 
+	    */
 
 	}
 	
