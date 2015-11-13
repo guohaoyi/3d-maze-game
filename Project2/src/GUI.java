@@ -1,7 +1,13 @@
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -85,7 +91,7 @@ public class GUI extends JFrame {
 
 }
 
-class Bottom extends JComponent {
+class Bottom extends JComponent implements MouseListener {
 	
 	public Bottom() {
 		this.setPreferredSize(new Dimension(800,200));
@@ -94,6 +100,32 @@ class Bottom extends JComponent {
 	public void paint(Graphics g) {
 		ImageIcon buttons = new ImageIcon("bin/buttons.png");
 		g.drawImage(buttons.getImage(), 324, 25, null);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(5));
+		g2.drawLine(225, 70, 250, 70);
+		g2.drawLine(237, 60, 237, 80);
+		g2.setFont(new Font(g2.getFont().getFontName(), Font.BOLD, 15));
+		g2.drawString("N", 232, 93);
+		addMouseListener(this);
 	}
 	
+	public void mousePressed(MouseEvent e) {
+		System.out.println("Mouse pressed; # of clicks: " + e.getClickCount() + "Point (" + e.getX() + ", " + e.getY() + ")");
+	}
+	
+    public void mouseReleased(MouseEvent e) {
+    	System.out.println("Mouse released; # of clicks: " + e.getClickCount());
+    }
+
+    public void mouseEntered(MouseEvent e) {
+       System.out.println("Mouse entered");
+    }
+
+    public void mouseExited(MouseEvent e) {
+    	System.out.println("Mouse exited");
+    }
+
+    public void mouseClicked(MouseEvent e) {
+    	System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" +  "Point (" + e.getX() + ", " + e.getY() + ")");
+    }
 }
