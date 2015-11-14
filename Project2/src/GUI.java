@@ -116,7 +116,7 @@ class Bottom extends JComponent implements MouseListener {
 	}
 	
 	public void mousePressed(MouseEvent e) {
-		//System.out.println("Mouse pressed; # of clicks: " + e.getClickCount() + "Point (" + e.getX() + ", " + e.getY() + ")");
+		//System.out.println("Mouse pressed; # of clicks: " + e.getClickCount() + " Point (" + e.getX() + ", " + e.getY() + ")");
 	}
 	
     public void mouseReleased(MouseEvent e) {
@@ -125,12 +125,10 @@ class Bottom extends JComponent implements MouseListener {
 
     public void mouseEntered(MouseEvent e) {
        //System.out.println("Mouse entered");
-       //System.out.println("Bruh!");
     }
 
     public void mouseExited(MouseEvent e) {
     	//System.out.println("Mouse exited");
-    	//System.out.println("Peace out!");
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -150,6 +148,6 @@ class Bottom extends JComponent implements MouseListener {
     		System.out.println("Backward");
     	else if ((x >= 431) && (x <= 472) && (y >= 142) && (y <= 180))
     		System.out.println("Rightward");
-    	//System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" +  "Point (" + e.getX() + ", " + e.getY() + ")");
+    	//System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" + " Point (" + e.getX() + ", " + e.getY() + ")");
     }
 }
