@@ -95,6 +95,7 @@ class Bottom extends JComponent implements MouseListener {
 	
 	public Bottom() {
 		this.setPreferredSize(new Dimension(800,200));
+		addMouseListener(this);
 	}
 	
 	public void paint(Graphics g) {
@@ -102,30 +103,53 @@ class Bottom extends JComponent implements MouseListener {
 		g.drawImage(buttons.getImage(), 324, 25, null);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(5));
-		g2.drawLine(225, 70, 250, 70);
-		g2.drawLine(237, 60, 237, 80);
+		g2.drawLine(265, 70, 290, 70);
+		g2.drawLine(277, 60, 277, 80);
 		g2.setFont(new Font(g2.getFont().getFontName(), Font.BOLD, 15));
-		g2.drawString("N", 232, 93);
-		addMouseListener(this);
+		g2.drawString("N", 272, 93);
+		g2.drawString("Health", 30, 30);
+		g2.drawString("Treasure", 30, 100);
+		g2.drawString("0", 30, 125);
+		g2.drawRect(30, 40, 200, 30);
+		g2.setColor(Color.green);
+		g2.fillRect(30, 40, 200, 30);
 	}
 	
 	public void mousePressed(MouseEvent e) {
-		System.out.println("Mouse pressed; # of clicks: " + e.getClickCount() + "Point (" + e.getX() + ", " + e.getY() + ")");
+		//System.out.println("Mouse pressed; # of clicks: " + e.getClickCount() + "Point (" + e.getX() + ", " + e.getY() + ")");
 	}
 	
     public void mouseReleased(MouseEvent e) {
-    	System.out.println("Mouse released; # of clicks: " + e.getClickCount());
+    	//System.out.println("Mouse released; # of clicks: " + e.getClickCount());
     }
 
     public void mouseEntered(MouseEvent e) {
-       System.out.println("Mouse entered");
+       //System.out.println("Mouse entered");
+       //System.out.println("Bruh!");
     }
 
     public void mouseExited(MouseEvent e) {
-    	System.out.println("Mouse exited");
+    	//System.out.println("Mouse exited");
+    	//System.out.println("Peace out!");
     }
 
     public void mouseClicked(MouseEvent e) {
-    	System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" +  "Point (" + e.getX() + ", " + e.getY() + ")");
+    	int x = e.getX();
+    	int y = e.getY();
+    	if ((x >= 340) && (x <= 460) && (y >= 32) && (y <= 65))
+    		System.out.println("Attack");
+    	else if ((x >= 328) && (x <= 369) && (y >= 90) && (y <= 126))
+    		System.out.println("Turn left");
+    	else if ((x >= 380) && (x <= 418) && (y >= 90) && (y <= 133))
+    		System.out.println("Forward");
+    	else if ((x >= 431) && (x <= 472) && (y >= 90) && (y <= 126))
+    		System.out.println("Turn right");
+    	else if ((x >= 328) && (x <= 369) && (y >= 142) && (y <= 180))
+    		System.out.println("Leftward");
+    	else if ((x >= 380) && (x <= 418) && (y >= 142) && (y <= 183))
+    		System.out.println("Backward");
+    	else if ((x >= 431) && (x <= 472) && (y >= 142) && (y <= 180))
+    		System.out.println("Rightward");
+    	//System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" +  "Point (" + e.getX() + ", " + e.getY() + ")");
     }
 }
