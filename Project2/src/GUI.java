@@ -238,52 +238,6 @@ class Top extends JComponent {
 			backEast = back.isWest();
 			backSouth = back.isNorth();
 			backWest = back.isEast();
-			/*
-			if ((frontWest) && (back.isEast())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left.png");
-				g.drawImage(left.getImage(), 0, 0, null);
-			}
-			else if (((frontWest) && (!back.isEast()) && (!back.isSouth())) || ((!back.isEast()) && (back.isSouth()))) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left_no_wall_back.png");
-				g.drawImage(left.getImage(), 0, 0, null);
-			}
-			else if ((!frontWest) && (!back.isEast())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left_no_wall_both.png");
-				g.drawImage(left.getImage(), 0, 0, null);
-			}
-			else if ((!frontWest) && (back.isEast())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left_no_wall_front.png");
-				g.drawImage(left.getImage(), 0, 0, null);
-			}
-			if (back.isSouth()) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_wall_in_face.png");
-				g.drawImage(left.getImage(), 228, 0, null);
-			}
-			else if ((frontNorth) && (!back.isSouth())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center.png");
-				g.drawImage(left.getImage(), 228, 0, null);
-			}
-			else if ((!frontNorth) && (!back.isSouth())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_no_wall_back.png");
-				g.drawImage(left.getImage(), 228, 0, null);
-			}
-			if ((frontEast) && (back.isWest())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right.png");
-				g.drawImage(left.getImage(), 571, 0, null);
-			}
-			else if (((frontEast) && (!back.isWest()) && (!back.isSouth())) || ((!back.isWest()) && (back.isSouth()))) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right_no_wall_back.png");
-				g.drawImage(left.getImage(), 571, 0, null);
-			}
-			else if ((!frontEast) && (!back.isWest())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right_no_wall_both.png");
-				g.drawImage(left.getImage(), 571, 0, null);
-			}
-			else if ((!frontEast) && (back.isWest())) {
-				ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right_no_wall_front.png");
-				g.drawImage(left.getImage(), 571, 0, null);
-			}
-			*/
 		}
 		else if (player.getDirection() == 'w') {
 			if (gamePlay.getPlayerRow() > 0) {
