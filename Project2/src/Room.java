@@ -8,6 +8,7 @@ public class Room {
 	private boolean south;
 	private boolean west;
 	private String texture;
+	private Player player;
 	
 	public Room(Monster monster, Treasure treasure, boolean north, boolean east, boolean south, boolean west, String texture) {
 		this.monster = monster;
@@ -73,6 +74,14 @@ public class Room {
 
 	public void setTexture(String texture) {
 		this.texture = texture;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 
 	public static void main(String[] args) {

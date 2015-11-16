@@ -1,9 +1,10 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Scanner;
 
-public class Maze {
+public class Maze extends Observable {
 	
 	private ArrayList<Monster> monsters = new ArrayList<Monster>();
 	private ArrayList<String> monsterNames = new ArrayList<String>();
@@ -13,6 +14,7 @@ public class Maze {
 	private int row, col;
 	
 	public Maze() {
+		super();
 		readMonsters();
 		readTreasures();
 		readMap();

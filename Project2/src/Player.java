@@ -3,11 +3,13 @@ public class Player extends Character {
 	
 	private int currentHealth;
 	private int gold;
+	private char direction;
 	
 	public Player() {
 		super(100);
 		currentHealth = 100;
 		gold = 0;
+		direction = 's';
 		setVisible(true);
 	}
 
@@ -25,6 +27,36 @@ public class Player extends Character {
 
 	public void setGold(int gold) {
 		this.gold = gold;
+	}
+
+	public char getDirection() {
+		return direction;
+	}
+
+	public void setDirection(char direction) {
+		this.direction = direction;
+	}
+	
+	public void turnLeft() {
+		if (direction == 'n')
+			direction = 'w';
+		else if (direction == 'e')
+			direction = 'n';
+		else if (direction == 's')
+			direction = 'e';
+		else if (direction == 'w')
+			direction = 's';
+	}
+	
+	public void turnRight() {
+		if (direction == 'n')
+			direction = 'e';
+		else if (direction == 'e')
+			direction = 's';
+		else if (direction == 's')
+			direction = 'w';
+		else if (direction == 'w')
+			direction = 'n';
 	}
 
 	public static void main(String[] args) {

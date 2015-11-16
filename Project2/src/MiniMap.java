@@ -1,10 +1,12 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JComponent;
 
-public class MiniMap extends JComponent {
+public class MiniMap extends JComponent implements Observer {
 	
 	private Maze maze;
 	private Room[][] rooms;
@@ -84,6 +86,8 @@ public class MiniMap extends JComponent {
 						g.setColor(Color.black);
 					}
 				}
+				if (rooms[j][i].getPlayer() != null)
+					g.drawString("U", x + 15 + width * i, y + 25 + height * j);
 			}
 		}
 		
@@ -92,6 +96,12 @@ public class MiniMap extends JComponent {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		this.repaint();
 	}
 
 }
