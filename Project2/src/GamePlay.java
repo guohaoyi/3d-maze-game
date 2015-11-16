@@ -18,94 +18,158 @@ public class GamePlay {
 	public void move(String movement) {
 		if (movement.equals("forward")) {
 			if (player.getDirection() == 'n') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isNorth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'e') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isEast()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 's') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isSouth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'w') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isWest()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 		}
 		else if (movement.equals("backward")) {
 			if (player.getDirection() == 'n') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isSouth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'e') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isWest()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 's') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isNorth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'w') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isEast()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 		}
 		else if (movement.equals("leftward")) {
 			if (player.getDirection() == 'n') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isWest()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'e') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isNorth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 's') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isEast()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'w') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isSouth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 		}
 		else if (movement.equals("rightward")) {
 			if (player.getDirection() == 'n') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isEast()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'e') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow++;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isSouth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow++;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 's') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerCol--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isWest()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerCol--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 			else if (player.getDirection() == 'w') {
-				rooms[playerRow][playerCol].setPlayer(null);
-				playerRow--;
-				rooms[playerRow][playerCol].setPlayer(player);
+				if (!rooms[playerRow][playerCol].isNorth()) {
+					rooms[playerRow][playerCol].setPlayer(null);
+					playerRow--;
+					rooms[playerRow][playerCol].setPlayer(player);
+				}
+				else
+					System.out.println("Out of bounds");
 			}
 		}
 	}
-
+	
 	public Maze getMaze() {
 		return maze;
 	}
