@@ -5,20 +5,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GUI extends JFrame implements MouseListener {
@@ -143,6 +137,7 @@ public class GUI extends JFrame implements MouseListener {
 
 }
 
+// Paint the bottom panel
 class Bottom extends JComponent {
 	
 	private Player player;
@@ -178,7 +173,7 @@ class Bottom extends JComponent {
 
 }
 
-
+// Paint the top panel
 class Top extends JComponent {
 	
 	private GamePlay gamePlay;
@@ -194,6 +189,7 @@ class Top extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
+		// Initialize the room where the player is, and the room ahead
 		Room back = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol()];
 		boolean backNorth = back.isNorth();
 		boolean backEast = back.isEast();
@@ -204,6 +200,7 @@ class Top extends JComponent {
 		boolean frontSouth = true;
 		boolean frontWest = true;
 		
+		// North
 		if (player.getDirection() == 'n') {
 			if (gamePlay.getPlayerRow() > 0) {
 				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() - 1][gamePlay.getPlayerCol()];
@@ -213,6 +210,7 @@ class Top extends JComponent {
 				frontWest = front.isWest();
 			}
 		}
+		// East
 		else if (player.getDirection() == 'e') {
 			if (gamePlay.getPlayerCol() < col - 1) {
 				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() + 1];
@@ -226,6 +224,7 @@ class Top extends JComponent {
 			backSouth = back.isWest();
 			backWest = back.isNorth();
 		}
+		// South
 		else if (player.getDirection() == 's') {
 			if (gamePlay.getPlayerRow() < row - 1) {
 				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() + 1][gamePlay.getPlayerCol()];
@@ -239,6 +238,7 @@ class Top extends JComponent {
 			backSouth = back.isNorth();
 			backWest = back.isEast();
 		}
+		// West
 		else if (player.getDirection() == 'w') {
 			if (gamePlay.getPlayerCol() > 0) {
 				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() - 1];
@@ -252,7 +252,7 @@ class Top extends JComponent {
 			backSouth = back.isEast();
 			backWest = back.isSouth();
 		}
-		
+		// Paint left wall
 		if ((frontWest) && (backWest)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left.png");
 			g.drawImage(left.getImage(), 0, 0, null);
@@ -269,6 +269,7 @@ class Top extends JComponent {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left_no_wall_front.png");
 			g.drawImage(left.getImage(), 0, 0, null);
 		}
+		// Paint center wall
 		if (backNorth) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_wall_in_face.png");
 			g.drawImage(left.getImage(), 228, 0, null);
@@ -281,6 +282,7 @@ class Top extends JComponent {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_no_wall_back.png");
 			g.drawImage(left.getImage(), 228, 0, null);
 		}
+		// Paint right wall
 		if ((frontEast) && (backEast)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right.png");
 			g.drawImage(left.getImage(), 571, 0, null);
@@ -296,8 +298,7 @@ class Top extends JComponent {
 		else if ((!frontEast) && (backEast)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right_no_wall_front.png");
 			g.drawImage(left.getImage(), 571, 0, null);
-		}
-		
+		}	
 	}
 	
 }
