@@ -214,8 +214,8 @@ class Top extends JComponent {
 			}
 		}
 		else if (player.getDirection() == 'e') {
-			if (gamePlay.getPlayerRow() > 0) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() - 1][gamePlay.getPlayerCol()];
+			if (gamePlay.getPlayerCol() < col - 1) {
+				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() + 1];
 				frontNorth = front.isEast();
 				frontEast = front.isSouth();
 				frontSouth = front.isWest();
@@ -240,8 +240,8 @@ class Top extends JComponent {
 			backWest = back.isEast();
 		}
 		else if (player.getDirection() == 'w') {
-			if (gamePlay.getPlayerRow() > 0) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() - 1][gamePlay.getPlayerCol()];
+			if (gamePlay.getPlayerCol() > 0) {
+				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() - 1];
 				frontNorth = front.isWest();
 				frontEast = front.isNorth();
 				frontSouth = front.isEast();
