@@ -21,6 +21,7 @@ public class Maze extends Observable {
 	}
 	
 	public void readMap() {
+		// Reads in map.txt file, creates rooms, and stores them in a double array
 		try {
 			FileReader fin = new FileReader("bin/map.txt");
 			Scanner scan = new Scanner(fin);
@@ -57,6 +58,7 @@ public class Maze extends Observable {
 	}
 	
 	public void readMonsters() {
+		// Reads in monsters.txt file, creates monsters, and stores them in an ArrayList
 		try {
 			FileReader fin = new FileReader("bin/monsters.txt");
 			Scanner scan = new Scanner(fin);
@@ -85,6 +87,7 @@ public class Maze extends Observable {
 	}
 	
 	public void readTreasures() {
+		// Reads in treasures.txt file, creates treasures, and stores them in an ArrayList
 		try {
 			FileReader fin = new FileReader("bin/treasures.txt");
 			Scanner scan = new Scanner(fin);
