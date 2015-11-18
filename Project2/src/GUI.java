@@ -200,11 +200,12 @@ class Top extends JComponent {
 		boolean frontEast = true;
 		boolean frontSouth = true;
 		boolean frontWest = true;
+		Room front = new Room(null, null, true, true, true, true, "texture1");
 		
 		// North
 		if (player.getDirection() == 'n') {
 			if (gamePlay.getPlayerRow() > 0) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() - 1][gamePlay.getPlayerCol()];
+				front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() - 1][gamePlay.getPlayerCol()];
 				frontNorth = front.isNorth();
 				frontEast = front.isEast();
 				frontSouth = front.isSouth();
@@ -214,7 +215,7 @@ class Top extends JComponent {
 		// East
 		else if (player.getDirection() == 'e') {
 			if (gamePlay.getPlayerCol() < col - 1) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() + 1];
+				front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() + 1];
 				frontNorth = front.isEast();
 				frontEast = front.isSouth();
 				frontSouth = front.isWest();
@@ -228,7 +229,7 @@ class Top extends JComponent {
 		// South
 		else if (player.getDirection() == 's') {
 			if (gamePlay.getPlayerRow() < row - 1) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() + 1][gamePlay.getPlayerCol()];
+				front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow() + 1][gamePlay.getPlayerCol()];
 				frontNorth = front.isSouth();
 				frontEast = front.isWest();
 				frontSouth = front.isNorth();
@@ -242,7 +243,7 @@ class Top extends JComponent {
 		// West
 		else if (player.getDirection() == 'w') {
 			if (gamePlay.getPlayerCol() > 0) {
-				Room front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() - 1];
+				front = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol() - 1];
 				frontNorth = front.isWest();
 				frontEast = front.isNorth();
 				frontSouth = front.isEast();
@@ -299,7 +300,26 @@ class Top extends JComponent {
 		else if ((!frontEast) && (backEast)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right_no_wall_front.png");
 			g.drawImage(left.getImage(), 571, 0, null);
-		}	
+		}
+		// Paints treasure
+		if ((!front.isSouth()) && (front.getTreasure() != null)) {
+			if (front.getTreasure().getName().equals("Gold Bag")) {
+				ImageIcon treasure = new ImageIcon("bin/resources/treasures/goldbag.png");
+				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
+			}
+			else if (front.getTreasure().getName().equals("Gem")) {
+				ImageIcon treasure = new ImageIcon("bin/resources/treasures/gem.png");
+				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
+			}
+			else if (front.getTreasure().getName().equals("Chalice")) {
+				ImageIcon treasure = new ImageIcon("bin/resources/treasures/chalice.png");
+				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
+			}
+			else if (front.getTreasure().getName().equals("Health Potion")) {
+				ImageIcon treasure = new ImageIcon("bin/resources/treasures/health_potion.png");
+				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
+			}
+		}
 	}
 	
 }
