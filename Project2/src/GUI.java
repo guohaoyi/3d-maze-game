@@ -167,9 +167,15 @@ class Bottom extends JComponent {
 		g2.drawString("Health", 30, 30);
 		g2.drawString("Treasure", 30, 100);
 		g2.drawString("0", 30, 125);
-		g2.drawRect(30, 40, 200, 30);
-		g2.setColor(Color.green);
-		g2.fillRect(30, 40, 200, 30);
+		g2.setStroke(new BasicStroke(1));
+		g2.drawRect(29, 39, 202, 32);
+		if (player.getCurrentHealth() >= 67)
+			g2.setColor(Color.green);
+		else if (player.getCurrentHealth() <= 33)
+			g2.setColor(Color.red);
+		else
+			g2.setColor(Color.yellow);
+		g2.fillRect(30, 40, (200 * player.getCurrentHealth() / 100), 30);
 	}
 
 }

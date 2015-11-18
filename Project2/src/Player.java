@@ -20,6 +20,12 @@ public class Player extends Character {
 	public void setCurrentHealth(int currentHealth) {
 		this.currentHealth = currentHealth;
 	}
+	
+	public void increaseCurrentHealth(int increase) {
+		currentHealth = currentHealth + increase;
+		if (currentHealth > this.getHealth())
+			currentHealth = this.getHealth();
+	}
 
 	public int getGold() {
 		return gold;
@@ -27,6 +33,10 @@ public class Player extends Character {
 
 	public void setGold(int gold) {
 		this.gold = gold;
+	}
+	
+	public void increaseGold(int increase) {
+		gold = gold + increase;
 	}
 
 	public char getDirection() {
