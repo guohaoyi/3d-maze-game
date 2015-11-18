@@ -137,7 +137,7 @@ public class GUI extends JFrame implements MouseListener {
 
 }
 
-// Paint the bottom panel
+// Paints the bottom panel
 class Bottom extends JComponent {
 	
 	private Player player;
@@ -148,6 +148,7 @@ class Bottom extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
+		// Paints the buttons, health, and treasure
 		ImageIcon buttons = new ImageIcon("bin/buttons.png");
 		g.drawImage(buttons.getImage(), 324, 25, null);
 		Graphics2D g2 = (Graphics2D) g;
@@ -173,7 +174,7 @@ class Bottom extends JComponent {
 
 }
 
-// Paint the top panel
+// Paints the top panel
 class Top extends JComponent {
 	
 	private GamePlay gamePlay;
@@ -189,7 +190,7 @@ class Top extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
-		// Initialize the room where the player is, and the room ahead
+		// Initializes the room where the player is in, and the room ahead
 		Room back = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol()];
 		boolean backNorth = back.isNorth();
 		boolean backEast = back.isEast();
@@ -252,7 +253,7 @@ class Top extends JComponent {
 			backSouth = back.isEast();
 			backWest = back.isSouth();
 		}
-		// Paint left wall
+		// Paints left wall
 		if ((frontWest) && (backWest)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left.png");
 			g.drawImage(left.getImage(), 0, 0, null);
@@ -269,7 +270,7 @@ class Top extends JComponent {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_left_no_wall_front.png");
 			g.drawImage(left.getImage(), 0, 0, null);
 		}
-		// Paint center wall
+		// Paints center wall
 		if (backNorth) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_wall_in_face.png");
 			g.drawImage(left.getImage(), 228, 0, null);
@@ -282,7 +283,7 @@ class Top extends JComponent {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_center_no_wall_back.png");
 			g.drawImage(left.getImage(), 228, 0, null);
 		}
-		// Paint right wall
+		// Paints right wall
 		if ((frontEast) && (backEast)) {
 			ImageIcon left = new ImageIcon("bin/resources/textures/" + back.getTexture() + "_right.png");
 			g.drawImage(left.getImage(), 571, 0, null);

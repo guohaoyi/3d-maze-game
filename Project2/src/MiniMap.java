@@ -25,6 +25,7 @@ public class MiniMap extends JComponent implements Observer {
 	public void paint(Graphics g) {
 		for (int i = 0; i < maze.getRow(); i++) {
 			for (int j = 0; j < maze.getCol(); j++) {
+				// Paints the north wall
 				if (rooms[j][i].isNorth()) {
 					if (rooms[j][i].getTexture().equals("texture2"))
 						g.setColor(Color.green);
@@ -35,6 +36,7 @@ public class MiniMap extends JComponent implements Observer {
 					g.drawLine(x + width * i, y + height * j, x + width + width * i - 5, y + height * j);
 					g.setColor(Color.black);
 				}
+				// Paints the east wall
 				if (rooms[j][i].isEast()) {
 					if (rooms[j][i].getTexture().equals("texture2"))
 						g.setColor(Color.green);
@@ -45,6 +47,7 @@ public class MiniMap extends JComponent implements Observer {
 					g.drawLine(x + width + width * i - 5, y + height * j, x + width + width * i - 5, y + height + height * j - 5);
 					g.setColor(Color.black);
 				}
+				// Paints the south wall
 				if (rooms[j][i].isSouth()) {
 					if (rooms[j][i].getTexture().equals("texture2"))
 						g.setColor(Color.green);
@@ -55,6 +58,7 @@ public class MiniMap extends JComponent implements Observer {
 					g.drawLine(x + width * i, y + height + height * j - 5, x + width + width * i - 5, y + height + height * j - 5);
 					g.setColor(Color.black);
 				}
+				// Paints the west wall
 				if (rooms[j][i].isWest()) {
 					if (rooms[j][i].getTexture().equals("texture2"))
 						g.setColor(Color.green);
@@ -65,8 +69,10 @@ public class MiniMap extends JComponent implements Observer {
 					g.drawLine(x + width * i, y + height * j, x + width * i, y + height + height * j - 5);
 					g.setColor(Color.black);
 				}
+				// Paints monsters
 				if (rooms[j][i].getMonster() != null)
 					g.drawString(rooms[j][i].getMonster().toString(), x + 4 + width * i, y + 14 + height * j);
+				// Paints treasures
 				if (rooms[j][i].getTreasure() != null) {
 					if (rooms[j][i].getTreasure().getName().equals("Gold Bag"))
 						g.fillOval(x + 25 + width * i, y + 17 + height * j, 10, 10);
@@ -86,6 +92,7 @@ public class MiniMap extends JComponent implements Observer {
 						g.setColor(Color.black);
 					}
 				}
+				// Paints the player
 				if (rooms[j][i].getPlayer() != null)
 					g.drawString("U", x + 15 + width * i, y + 25 + height * j);
 			}
