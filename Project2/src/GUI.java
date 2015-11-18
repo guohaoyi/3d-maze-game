@@ -302,7 +302,7 @@ class Top extends JComponent {
 			g.drawImage(left.getImage(), 571, 0, null);
 		}
 		// Paints treasure
-		if ((!front.isSouth()) && (front.getTreasure() != null)) {
+		if ((!frontSouth) && (front.getTreasure() != null)) {
 			if (front.getTreasure().getName().equals("Gold Bag")) {
 				ImageIcon treasure = new ImageIcon("bin/resources/treasures/goldbag.png");
 				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
