@@ -10,7 +10,7 @@ health_potion.png
 500
 ***
 Gold Bag
-gold_bag.png
+goldbag.png
 75
 0
 50

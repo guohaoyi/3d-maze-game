@@ -302,24 +302,11 @@ class Top extends JComponent {
 			g.drawImage(left.getImage(), 571, 0, null);
 		}
 		// Paints treasure
-		if ((!frontSouth) && (front.getTreasure() != null)) {
-			if (front.getTreasure().getName().equals("Gold Bag")) {
-				ImageIcon treasure = new ImageIcon("bin/resources/treasures/goldbag.png");
-				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
-			}
-			else if (front.getTreasure().getName().equals("Gem")) {
-				ImageIcon treasure = new ImageIcon("bin/resources/treasures/gem.png");
-				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
-			}
-			else if (front.getTreasure().getName().equals("Chalice")) {
-				ImageIcon treasure = new ImageIcon("bin/resources/treasures/chalice.png");
-				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
-			}
-			else if (front.getTreasure().getName().equals("Health Potion")) {
-				ImageIcon treasure = new ImageIcon("bin/resources/treasures/health_potion.png");
-				g.drawImage(treasure.getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
-			}
-		}
+		if ((!frontSouth) && (front.getTreasure() != null))
+			g.drawImage(front.getTreasure().getImage().getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), null);
+		// Paints monsters
+		if ((!frontSouth) && (front.getMonster() != null))
+			g.drawImage(front.getMonster().getImage1().getImage(), front.getMonster().getxCoordinate(), front.getMonster().getyCoordinate(), null);
 	}
 	
 }

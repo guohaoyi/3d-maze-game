@@ -1,7 +1,7 @@
 4
 ***
 Gelatinous Cube
-gelatinous_cube.png
+gelatinous_cube1.png
 gelatinous_cube2.png
 250
 300
@@ -12,7 +12,7 @@ gelatinous_cube2.png
 70
 ***
 Kobold
-kobold.png
+kobold1.png
 kobold2.png
 300
 350
@@ -34,7 +34,7 @@ onyx_wyrm2.png
 40
 ***
 Skeleton
-skeleton.png
+skeleton1.png
 skeleton2.png
 300
 300
