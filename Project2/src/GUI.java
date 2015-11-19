@@ -166,7 +166,7 @@ class Bottom extends JComponent {
 			g2.drawString("N", 251, 75);
 		g2.drawString("Health", 30, 30);
 		g2.drawString("Treasure", 30, 100);
-		g2.drawString("0", 30, 125);
+		g2.drawString(String.valueOf(player.getGold()), 30, 125);
 		g2.setStroke(new BasicStroke(1));
 		g2.drawRect(29, 39, 202, 32);
 		if (player.getCurrentHealth() >= 67)
