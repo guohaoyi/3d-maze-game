@@ -26,6 +26,7 @@ public class GamePlay {
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -37,6 +38,7 @@ public class GamePlay {
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -48,6 +50,7 @@ public class GamePlay {
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -59,6 +62,7 @@ public class GamePlay {
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -73,6 +77,7 @@ public class GamePlay {
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -84,6 +89,7 @@ public class GamePlay {
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -95,6 +101,7 @@ public class GamePlay {
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -106,6 +113,7 @@ public class GamePlay {
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -120,6 +128,7 @@ public class GamePlay {
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -131,6 +140,7 @@ public class GamePlay {
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -142,6 +152,7 @@ public class GamePlay {
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -153,6 +164,7 @@ public class GamePlay {
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -167,6 +179,7 @@ public class GamePlay {
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -178,6 +191,7 @@ public class GamePlay {
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -189,6 +203,7 @@ public class GamePlay {
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -200,6 +215,7 @@ public class GamePlay {
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
 					checkTreasure(playerRow, playerCol);
+					checkMonster(playerRow, playerCol);
 				}
 				else
 					System.out.println("Out of bounds");
@@ -220,6 +236,13 @@ public class GamePlay {
 				System.out.println("You've got " + treasure.getHealth() + " health! Your current health is " + player.getCurrentHealth());
 			}
 			rooms[row][col].setTreasure(null);
+		}
+	}
+	
+	public void checkMonster(int row, int col) {
+		if (rooms[row][col].getMonster() != null) {
+			Monster monster = rooms[row][col].getMonster();
+			(new Thread(monster)).start();
 		}
 	}
 	

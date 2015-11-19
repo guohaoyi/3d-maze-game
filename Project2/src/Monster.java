@@ -1,6 +1,6 @@
 import javax.swing.ImageIcon;
 
-public class Monster extends Character {
+public class Monster extends Character implements Runnable {
 	
 	private String name;
 	private ImageIcon image1;
@@ -102,6 +102,12 @@ public class Monster extends Character {
 		return name.substring(0, 1);
 	}
 
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Greetings from a monster!");
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
