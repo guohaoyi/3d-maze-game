@@ -25,7 +25,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -37,7 +36,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -49,7 +47,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -61,7 +58,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -76,7 +72,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -88,7 +83,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -100,7 +94,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -112,7 +105,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -127,7 +119,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -139,7 +130,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -151,7 +141,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -163,7 +152,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -178,7 +166,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -190,7 +177,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -202,7 +188,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
@@ -214,7 +199,6 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkTreasure(playerRow, playerCol);
 					checkMonster(playerRow, playerCol);
 				}
 				else
