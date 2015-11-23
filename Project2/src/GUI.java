@@ -74,6 +74,7 @@ public class GUI extends JFrame implements MouseListener {
 		// TODO Auto-generated method stub
 		int x = e.getX();
     	int y = e.getY();
+    	boolean treasure = false;
     	if ((x >= 340) && (x <= 460) && (y >= 655) && (y <= 688))
     		System.out.println("Attack");
     	else if ((x >= 328) && (x <= 369) && (y >= 713) && (y <= 749)) {
@@ -106,9 +107,20 @@ public class GUI extends JFrame implements MouseListener {
     		gamePlay.move("rightward");
     		this.repaint();
     	}
-    	else
-    		System.out.println("Mouse clicked (# of clicks: " + e.getClickCount() + ")" + " Point (" + e.getX() + ", " + e.getY() + ")");
-		
+    	
+    	Room room = gamePlay.getNextRoom();
+    	if (room != null)
+    		treasure = (room.getTreasure() != null);
+    	
+    	if (treasure) {
+    		int x1 = room.getTreasure().getxCoordinate();
+    		int x2 = x1 + room.getTreasure().getWidth();
+    		int y1 = room.getTreasure().getyCoordinate();
+    		int y2 = y1 + room.getTreasure().getHeight();
+    		if ((x >= x1) && (x <= x2) && (y >= y1) && (y <= y2))
+    			gamePlay.checkTreasure(room);
+    		this.repaint();
+    	}
 	}
 
 	@Override

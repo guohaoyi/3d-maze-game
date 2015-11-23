@@ -207,10 +207,10 @@ public class GamePlay {
 		}
 	}
 	
-	public void checkTreasure(int row, int col) {
+	public void checkTreasure(Room room) {
 		// Checks if there is a treasure in the room, if so, the player will pick up the treasure
-		if (rooms[row][col].getTreasure() != null) {
-			Treasure treasure = rooms[row][col].getTreasure();
+		if (room.getTreasure() != null) {
+			Treasure treasure = room.getTreasure();
 			if (treasure.getGold() != 0) {
 				player.increaseGold(treasure.getGold());
 				System.out.println("You've got " + treasure.getGold() + " gold! You currently have " + player.getGold() + " gold");
@@ -219,7 +219,7 @@ public class GamePlay {
 				player.increaseCurrentHealth(treasure.getHealth());
 				System.out.println("You've got " + treasure.getHealth() + " health! Your current health is " + player.getCurrentHealth());
 			}
-			rooms[row][col].setTreasure(null);
+			room.setTreasure(null);
 		}
 	}
 	
@@ -228,6 +228,31 @@ public class GamePlay {
 			Monster monster = rooms[row][col].getMonster();
 			(new Thread(monster)).start();
 		}
+	}
+	
+	public Room getNextRoom() {
+		Room room = null;
+		if (player.getDirection() == 'n') {
+			// North
+			if (!rooms[playerRow][playerCol].isNorth())
+				room = rooms[playerRow-1][playerCol];
+		}
+		else if (player.getDirection() == 'e') {
+			// East
+			if (!rooms[playerRow][playerCol].isEast())
+				room = rooms[playerRow][playerCol+1];
+		}
+		else if (player.getDirection() == 's') {
+			// South
+			if (!rooms[playerRow][playerCol].isSouth())
+				room = rooms[playerRow+1][playerCol];
+		}
+		else if (player.getDirection() == 'w') {
+			// West
+			if (!rooms[playerRow][playerCol].isWest())
+				room = rooms[playerRow][playerCol-1];
+		}
+		return room;
 	}
 	
 	public Maze getMaze() {
