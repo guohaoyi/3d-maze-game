@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class GamePlay {
 	
@@ -25,7 +26,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -36,7 +37,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -47,7 +48,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -58,7 +59,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -72,7 +73,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -83,7 +84,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -94,7 +95,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -105,7 +106,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -119,7 +120,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -130,7 +131,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -141,7 +142,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -152,7 +153,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -166,7 +167,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -177,7 +178,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow++;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -188,7 +189,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerCol--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -199,7 +200,7 @@ public class GamePlay {
 					rooms[playerRow][playerCol].setPlayer(null);
 					playerRow--;
 					rooms[playerRow][playerCol].setPlayer(player);
-					checkMonster(playerRow, playerCol);
+					checkMonster();
 				}
 				else
 					System.out.println("Out of bounds");
@@ -207,7 +208,7 @@ public class GamePlay {
 		}
 	}
 	
-	public void checkTreasure(Room room) {
+	public void pickUpTreasure(Room room) {
 		// Checks if there is a treasure in the room, if so, the player will pick up the treasure
 		if (room.getTreasure() != null) {
 			Treasure treasure = room.getTreasure();
@@ -222,12 +223,49 @@ public class GamePlay {
 			room.setTreasure(null);
 		}
 	}
-	
+	/*
 	public void checkMonster(int row, int col) {
 		if (rooms[row][col].getMonster() != null) {
 			Monster monster = rooms[row][col].getMonster();
 			(new Thread(monster)).start();
 		}
+	}
+	*/
+	
+	public boolean checkMonster() {
+		boolean isMonster = false;
+		if (playerRow > 0) {
+			if (rooms[playerRow-1][playerCol].getMonster() != null)
+				isMonster = true;
+		}
+		if (playerCol < maze.getCol() - 1) {
+			if (rooms[playerRow][playerCol+1].getMonster() != null)
+				isMonster = true;
+		}
+		if (playerRow < maze.getRow() - 1) {
+			if (rooms[playerRow+1][playerCol].getMonster() != null)
+				isMonster = true;
+		}
+		if (playerCol > 0) {
+			if (rooms[playerRow][playerCol-1].getMonster() != null)
+				isMonster = true;
+		}
+		return isMonster;
+	}
+	
+	public void attack(Room room) {
+		Monster monster = room.getMonster();
+		Random rand = new Random();
+		int attack = rand.nextInt(100);
+		if (attack < monster.getProbabilityDamage()) {
+			System.out.println("You hit the monster!");
+			int playerAttack = 10;
+			monster.setHealth(monster.getHealth() - playerAttack);
+		}
+		else
+			System.out.println("You missed!");
+		if (monster.getHealth() <= 0)
+			room.setMonster(null);
 	}
 	
 	public Room getNextRoom() {

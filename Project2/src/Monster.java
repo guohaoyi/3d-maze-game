@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 
 public class Monster extends Character implements Runnable {
@@ -106,6 +108,11 @@ public class Monster extends Character implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		System.out.println("Greetings from a monster!");
+		//Random rand = new Random();
+		//int attack = rand.nextInt(100);
+		//if (attack < damage) {
+			
+		//}
 	}
 	
 	public static void main(String[] args) {
