@@ -13,8 +13,9 @@ public class Monster extends Character implements Runnable {
 	private int coolDownTime;
 	private int probabilityAttack;
 	private int probabilityDamage;
+	private GamePlay gamePlay;
 	
-	public Monster(String name, String image1, String image2, int xCoordinate, int yCoordinate, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage) {
+	public Monster(String name, String image1, String image2, int xCoordinate, int yCoordinate, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage, GamePlay gamePlay) {
 		super(health);
 		this.name = name;
 		this.image1 = new ImageIcon("bin/resources/monsters/" + image1);
@@ -25,6 +26,7 @@ public class Monster extends Character implements Runnable {
 		this.coolDownTime = coolDownTime;
 		this.probabilityAttack = probabilityAttack;
 		this.probabilityDamage = probabilityDamage;
+		this.gamePlay = gamePlay;
 		setVisible(false);
 	}
 

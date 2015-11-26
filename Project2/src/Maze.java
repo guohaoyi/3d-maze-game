@@ -12,9 +12,11 @@ public class Maze extends Observable {
 	private ArrayList<String> treasureNames = new ArrayList<String>();
 	private Room[][] rooms;
 	private int row, col;
+	private GamePlay gamePlay;
 	
-	public Maze() {
+	public Maze(GamePlay gamePlay) {
 		super();
+		this.gamePlay = gamePlay;
 		readMonsters();
 		readTreasures();
 		readMap();
@@ -77,7 +79,7 @@ public class Maze extends Observable {
 				int coolDownTime = scan.nextInt();
 				int probabilityAttack = scan.nextInt();
 				int probabilityDamage = scan.nextInt();
-				Monster m = new Monster(name, image1, image2, xCoordinate, yCoordinate, health, damage, coolDownTime, probabilityAttack, probabilityDamage);
+				Monster m = new Monster(name, image1, image2, xCoordinate, yCoordinate, health, damage, coolDownTime, probabilityAttack, probabilityDamage, gamePlay);
 				monsters.add(m);
 			}
 			scan.close();

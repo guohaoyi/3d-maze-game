@@ -8,7 +8,7 @@ public class GamePlay {
 	private int playerRow, playerCol;
 	
 	public GamePlay() {
-		maze = new Maze();
+		maze = new Maze(this);
 		player = new Player();
 		rooms = maze.getRooms();
 		playerRow = 0;
