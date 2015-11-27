@@ -15,6 +15,7 @@ public class Monster extends Character implements Runnable {
 	private int probabilityDamage;
 	private GamePlay gamePlay;
 	private boolean playerNearby;
+	private ImageIcon image;
 	
 	public Monster(String name, String image1, String image2, int xCoordinate, int yCoordinate, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage, GamePlay gamePlay) {
 		super(health);
@@ -29,6 +30,7 @@ public class Monster extends Character implements Runnable {
 		this.probabilityDamage = probabilityDamage;
 		this.gamePlay = gamePlay;
 		this.playerNearby = false;
+		this.image = this.image1;
 		setVisible(false);
 	}
 
@@ -112,6 +114,14 @@ public class Monster extends Character implements Runnable {
 		this.playerNearby = playerNearby;
 	}
 
+	public ImageIcon getImage() {
+		return image;
+	}
+
+	public void setImage(ImageIcon image) {
+		this.image = image;
+	}
+
 	public String toString() {
 		return name.substring(0, 1);
 	}
@@ -122,6 +132,10 @@ public class Monster extends Character implements Runnable {
 		System.out.println("Greetings from a monster!");
 		while (playerNearby) {
 			gamePlay.monsterAttack(this);
+			if (image == image1)
+				image = image2;
+			else
+				image = image1;
 			try {
 				Thread.sleep(coolDownTime * 1000);
 			} catch (InterruptedException e) {
