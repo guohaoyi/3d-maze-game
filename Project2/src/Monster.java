@@ -14,6 +14,7 @@ public class Monster extends Character implements Runnable {
 	private int probabilityAttack;
 	private int probabilityDamage;
 	private GamePlay gamePlay;
+	private boolean playerNearby;
 	
 	public Monster(String name, String image1, String image2, int xCoordinate, int yCoordinate, int health, int damage, int coolDownTime, int probabilityAttack, int probabilityDamage, GamePlay gamePlay) {
 		super(health);
@@ -27,6 +28,7 @@ public class Monster extends Character implements Runnable {
 		this.probabilityAttack = probabilityAttack;
 		this.probabilityDamage = probabilityDamage;
 		this.gamePlay = gamePlay;
+		this.playerNearby = false;
 		setVisible(false);
 	}
 
@@ -102,6 +104,14 @@ public class Monster extends Character implements Runnable {
 		this.probabilityDamage = probabilityDamage;
 	}
 	
+	public boolean isPlayerNearby() {
+		return playerNearby;
+	}
+
+	public void setPlayerNearby(boolean playerNearby) {
+		this.playerNearby = playerNearby;
+	}
+
 	public String toString() {
 		return name.substring(0, 1);
 	}
@@ -110,11 +120,15 @@ public class Monster extends Character implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		System.out.println("Greetings from a monster!");
-		//Random rand = new Random();
-		//int attack = rand.nextInt(100);
-		//if (attack < damage) {
-			
-		//}
+		while (playerNearby) {
+			gamePlay.monsterAttack(this);
+			try {
+				Thread.sleep(coolDownTime * 1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
