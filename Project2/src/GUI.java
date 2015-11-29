@@ -331,8 +331,10 @@ class Top extends JComponent {
 		if ((!frontSouth) && (front.getTreasure() != null))
 			g.drawImage(front.getTreasure().getImage().getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), front.getTreasure().getWidth(), front.getTreasure().getHeight(), null);
 		// Paints monsters
-		if ((!frontSouth) && (front.getMonster() != null))
+		if ((!frontSouth) && (front.getMonster() != null)) {
 			g.drawImage(front.getMonster().getImage().getImage(), front.getMonster().getxCoordinate(), front.getMonster().getyCoordinate(), null);
+			this.repaint();
+		}
 	}
 	
 }
