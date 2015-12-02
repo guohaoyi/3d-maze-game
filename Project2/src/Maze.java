@@ -38,8 +38,11 @@ public class Maze extends Observable {
 					String monsterName = scan.nextLine();
 					int monsterIndex = monsterNames.indexOf(monsterName);
 					Monster monster = null;
-					if (monsterIndex != -1)
+					if (monsterIndex != -1) {
 						monster = monsters.get(monsterIndex);
+						monster.setRow(i);
+						monster.setCol(j);
+					}
 					String treasureName = scan.nextLine();
 					int treasureIndex = treasureNames.indexOf(treasureName);
 					Treasure treasure = null;

@@ -13,6 +13,8 @@ public class Monster extends Character implements Runnable {
 	private int coolDownTime;
 	private int probabilityAttack;
 	private int probabilityDamage;
+	private int row;
+	private int col;
 	private GamePlay gamePlay;
 	private boolean playerNearby;
 	private ImageIcon image;
@@ -31,7 +33,6 @@ public class Monster extends Character implements Runnable {
 		this.gamePlay = gamePlay;
 		this.playerNearby = false;
 		this.image = this.image1;
-		setVisible(false);
 	}
 
 	public String getName() {
@@ -106,6 +107,22 @@ public class Monster extends Character implements Runnable {
 		this.probabilityDamage = probabilityDamage;
 	}
 	
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int row) {
+		this.row = row;
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public void setCol(int col) {
+		this.col = col;
+	}
+
 	public boolean isPlayerNearby() {
 		return playerNearby;
 	}
@@ -130,6 +147,8 @@ public class Monster extends Character implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		System.out.println("Greetings from a monster!");
+		System.out.println("Row: " + row + ", Col: " + col);
+		System.out.println(gamePlay.getPlayerRow() + " " + gamePlay.getPlayerCol());
 		while (playerNearby) {
 			gamePlay.monsterAttack(this);
 			if (image == image1)

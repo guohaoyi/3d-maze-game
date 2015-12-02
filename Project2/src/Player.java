@@ -10,7 +10,6 @@ public class Player extends Character {
 		currentHealth = 100;
 		gold = 0;
 		direction = 's';
-		setVisible(true);
 	}
 
 	public int getCurrentHealth() {
