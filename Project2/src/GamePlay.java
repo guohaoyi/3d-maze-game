@@ -17,260 +17,267 @@ public class GamePlay {
 		playerRow = 0;
 		playerCol = 0;
 		rooms[playerRow][playerCol].setPlayer(player);
+		int threadSize = maze.getThreads().size();
+		for (int i = 0; i < threadSize; i++) {
+			Thread thread = maze.getThreads().get(i);
+			thread.start();
+		}
 	}
 	
 	public void move(String movement) {
 		// Player's movements
-		if (movement.equals("forward")) {
-			// Forward
-			if (player.getDirection() == 'n') {
-				// North
-				if (!rooms[playerRow][playerCol].isNorth()) {
-					if (rooms[playerRow - 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+		if (player.getCurrentHealth() > 0) {
+			if (movement.equals("forward")) {
+				// Forward
+				if (player.getDirection() == 'n') {
+					// North
+					if (!rooms[playerRow][playerCol].isNorth()) {
+						if (rooms[playerRow - 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
+				else if (player.getDirection() == 'e') {
+					// East
+					if (!rooms[playerRow][playerCol].isEast()) {
+						if (rooms[playerRow][playerCol + 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 's') {
+					// South
+					if (!rooms[playerRow][playerCol].isSouth()) {
+						if (rooms[playerRow + 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 'w') {
+					// West
+					if (!rooms[playerRow][playerCol].isWest()) {
+						if (rooms[playerRow][playerCol - 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
 			}
-			else if (player.getDirection() == 'e') {
-				// East
-				if (!rooms[playerRow][playerCol].isEast()) {
-					if (rooms[playerRow][playerCol + 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+			else if (movement.equals("backward")) {
+				// Backward
+				if (player.getDirection() == 'n') {
+					// North
+					if (!rooms[playerRow][playerCol].isSouth()) {
+						if (rooms[playerRow + 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
+				else if (player.getDirection() == 'e') {
+					// East
+					if (!rooms[playerRow][playerCol].isWest()) {
+						if (rooms[playerRow][playerCol - 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 's') {
+					// South
+					if (!rooms[playerRow][playerCol].isNorth()) {
+						if (rooms[playerRow - 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 'w') {
+					// West
+					if (!rooms[playerRow][playerCol].isEast()) {
+						if (rooms[playerRow][playerCol + 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
 			}
-			else if (player.getDirection() == 's') {
-				// South
-				if (!rooms[playerRow][playerCol].isSouth()) {
-					if (rooms[playerRow + 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+			else if (movement.equals("leftward")) {
+				// Leftward
+				if (player.getDirection() == 'n') {
+					// North
+					if (!rooms[playerRow][playerCol].isWest()) {
+						if (rooms[playerRow][playerCol - 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
+				else if (player.getDirection() == 'e') {
+					// East
+					if (!rooms[playerRow][playerCol].isNorth()) {
+						if (rooms[playerRow - 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 's') {
+					// South
+					if (!rooms[playerRow][playerCol].isEast()) {
+						if (rooms[playerRow][playerCol + 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
+				else if (player.getDirection() == 'w') {
+					// West
+					if (!rooms[playerRow][playerCol].isSouth()) {
+						if (rooms[playerRow + 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
+					}
+					else
+						System.out.println("Out of bounds");
+				}
 			}
-			else if (player.getDirection() == 'w') {
-				// West
-				if (!rooms[playerRow][playerCol].isWest()) {
-					if (rooms[playerRow][playerCol - 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+			else if (movement.equals("rightward")) {
+				// Rightward
+				if (player.getDirection() == 'n') {
+					// North
+					if (!rooms[playerRow][playerCol].isEast()) {
+						if (rooms[playerRow][playerCol + 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
-			}
-		}
-		else if (movement.equals("backward")) {
-			// Backward
-			if (player.getDirection() == 'n') {
-				// North
-				if (!rooms[playerRow][playerCol].isSouth()) {
-					if (rooms[playerRow + 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+				else if (player.getDirection() == 'e') {
+					// East
+					if (!rooms[playerRow][playerCol].isSouth()) {
+						if (rooms[playerRow + 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow++;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'e') {
-				// East
-				if (!rooms[playerRow][playerCol].isWest()) {
-					if (rooms[playerRow][playerCol - 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+				else if (player.getDirection() == 's') {
+					// South
+					if (!rooms[playerRow][playerCol].isWest()) {
+						if (rooms[playerRow][playerCol - 1].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerCol--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 's') {
-				// South
-				if (!rooms[playerRow][playerCol].isNorth()) {
-					if (rooms[playerRow - 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
+				else if (player.getDirection() == 'w') {
+					// West
+					if (!rooms[playerRow][playerCol].isNorth()) {
+						if (rooms[playerRow - 1][playerCol].getMonster() == null) {
+							rooms[playerRow][playerCol].setPlayer(null);
+							playerRow--;
+							rooms[playerRow][playerCol].setPlayer(player);
+							checkMonster();
+						}
+						else
+							System.out.println("You cannot move through a live monster.");
 					}
 					else
-						System.out.println("You cannot move through a live monster.");
+						System.out.println("Out of bounds");
 				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'w') {
-				// West
-				if (!rooms[playerRow][playerCol].isEast()) {
-					if (rooms[playerRow][playerCol + 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-		}
-		else if (movement.equals("leftward")) {
-			// Leftward
-			if (player.getDirection() == 'n') {
-				// North
-				if (!rooms[playerRow][playerCol].isWest()) {
-					if (rooms[playerRow][playerCol - 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'e') {
-				// East
-				if (!rooms[playerRow][playerCol].isNorth()) {
-					if (rooms[playerRow - 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 's') {
-				// South
-				if (!rooms[playerRow][playerCol].isEast()) {
-					if (rooms[playerRow][playerCol + 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'w') {
-				// West
-				if (!rooms[playerRow][playerCol].isSouth()) {
-					if (rooms[playerRow + 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-		}
-		else if (movement.equals("rightward")) {
-			// Rightward
-			if (player.getDirection() == 'n') {
-				// North
-				if (!rooms[playerRow][playerCol].isEast()) {
-					if (rooms[playerRow][playerCol + 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'e') {
-				// East
-				if (!rooms[playerRow][playerCol].isSouth()) {
-					if (rooms[playerRow + 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow++;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 's') {
-				// South
-				if (!rooms[playerRow][playerCol].isWest()) {
-					if (rooms[playerRow][playerCol - 1].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerCol--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
-			}
-			else if (player.getDirection() == 'w') {
-				// West
-				if (!rooms[playerRow][playerCol].isNorth()) {
-					if (rooms[playerRow - 1][playerCol].getMonster() == null) {
-						rooms[playerRow][playerCol].setPlayer(null);
-						playerRow--;
-						rooms[playerRow][playerCol].setPlayer(player);
-						checkMonster();
-					}
-					else
-						System.out.println("You cannot move through a live monster.");
-				}
-				else
-					System.out.println("Out of bounds");
 			}
 		}
 	}
