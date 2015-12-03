@@ -1,4 +1,3 @@
-import java.applet.*;
 import java.io.File;
 import java.net.*;
 import java.util.Random;
@@ -36,7 +35,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -51,7 +49,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -66,7 +63,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -81,7 +77,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -99,7 +94,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -114,7 +108,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -129,7 +122,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -144,7 +136,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -162,7 +153,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -177,7 +167,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -192,7 +181,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -207,7 +195,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -225,7 +212,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -240,7 +226,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow++;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -255,7 +240,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerCol--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -270,7 +254,6 @@ public class GamePlay {
 							rooms[playerRow][playerCol].setPlayer(null);
 							playerRow--;
 							rooms[playerRow][playerCol].setPlayer(player);
-							checkMonster();
 						}
 						else
 							System.out.println("You cannot move through a live monster.");
@@ -302,70 +285,6 @@ public class GamePlay {
 			}
 			room.setTreasure(null);
 		}
-	}
-	/*
-	public void checkMonster(int row, int col) {
-		if (rooms[row][col].getMonster() != null) {
-			Monster monster = rooms[row][col].getMonster();
-			(new Thread(monster)).start();
-		}
-	}
-	*/
-	/*
-	public boolean checkMonster() {
-		boolean isMonster = false;
-		if (playerRow > 0) {
-			if (rooms[playerRow-1][playerCol].getMonster() != null)
-				isMonster = true;
-		}
-		if (playerCol < maze.getCol() - 1) {
-			if (rooms[playerRow][playerCol+1].getMonster() != null)
-				isMonster = true;
-		}
-		if (playerRow < maze.getRow() - 1) {
-			if (rooms[playerRow+1][playerCol].getMonster() != null)
-				isMonster = true;
-		}
-		if (playerCol > 0) {
-			if (rooms[playerRow][playerCol-1].getMonster() != null)
-				isMonster = true;
-		}
-		System.out.println(isMonster);
-		return isMonster;
-	}
-	*/
-	
-	public void checkMonster() {
-		boolean north = rooms[playerRow][playerCol].isNorth();
-		boolean east = rooms[playerRow][playerCol].isEast();
-		boolean south = rooms[playerRow][playerCol].isSouth();
-		boolean west = rooms[playerRow][playerCol].isWest();
-		/*
-		if ((!north) && (playerRow > 0)) {
-			if (rooms[playerRow - 1][playerCol].getMonster() != null) {
-				rooms[playerRow - 1][playerCol].getMonster().setPlayerNearby(true);
-				(new Thread(rooms[playerRow - 1][playerCol].getMonster())).start();
-			}
-		}
-		if ((!east) && (playerCol < maze.getCol() - 1)) {
-			if (rooms[playerRow][playerCol + 1].getMonster() != null) {
-				rooms[playerRow][playerCol + 1].getMonster().setPlayerNearby(true);
-				(new Thread(rooms[playerRow][playerCol + 1].getMonster())).start();
-			}
-		}
-		if ((!south) && (playerRow < maze.getRow() - 1)) {
-			if (rooms[playerRow + 1][playerCol].getMonster() != null) {
-				rooms[playerRow + 1][playerCol].getMonster().setPlayerNearby(true);
-				(new Thread(rooms[playerRow + 1][playerCol].getMonster())).start();
-			}
-		}
-		if ((!west) && (playerCol > 0)) {
-			if (rooms[playerRow][playerCol - 1].getMonster() != null) {
-				rooms[playerRow][playerCol - 1].getMonster().setPlayerNearby(true);
-				(new Thread(rooms[playerRow][playerCol - 1].getMonster())).start();
-			}
-		}
-		*/
 	}
 	
 	public void attack(Room room) {

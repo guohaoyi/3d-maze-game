@@ -17,6 +17,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class GUI extends JFrame implements MouseListener, KeyListener {
 	
 	private JPanel topPanel, bottomPanel, miniMapPanel;
@@ -85,38 +86,31 @@ public class GUI extends JFrame implements MouseListener, KeyListener {
     		if (monster) {
     			System.out.println("Attack");
         		gamePlay.attack(room);
-        		//this.repaint();
     		}
     	}
     	else if ((x >= 328) && (x <= 369) && (y >= 713) && (y <= 749)) {
     		System.out.println("Turn left");
     		player.turnLeft();
-    		//this.repaint();
     	}
     	else if ((x >= 380) && (x <= 418) && (y >= 713) && (y <= 756)) {
     		System.out.println("Forward");
     		gamePlay.move("forward");
-    		//this.repaint();
     	}
     	else if ((x >= 431) && (x <= 472) && (y >= 713) && (y <= 749)) {
     		System.out.println("Turn right");
     		player.turnRight();
-    		//this.repaint();
     	}
     	else if ((x >= 328) && (x <= 369) && (y >= 765) && (y <= 803)) {
     		System.out.println("Leftward");
     		gamePlay.move("leftward");
-    		//this.repaint();
     	}
     	else if ((x >= 380) && (x <= 418) && (y >= 765) && (y <= 806)) {
     		System.out.println("Backward");
     		gamePlay.move("backward");
-    		//this.repaint();
     	}
     	else if ((x >= 431) && (x <= 472) && (y >= 765) && (y <= 803)) {
     		System.out.println("Rightward");
     		gamePlay.move("rightward");
-    		//this.repaint();
     	}
     	
     	boolean treasure = false;
@@ -129,7 +123,6 @@ public class GUI extends JFrame implements MouseListener, KeyListener {
     		int y2 = y1 + room.getTreasure().getHeight();
     		if ((x >= x1) && (x <= x2) && (y >= y1) && (y <= y2))
     			gamePlay.pickUpTreasure(room);
-    		//this.repaint();
     	}
 	}
 
@@ -219,6 +212,7 @@ public class GUI extends JFrame implements MouseListener, KeyListener {
 }
 
 // Paints the bottom panel
+@SuppressWarnings("serial")
 class Bottom extends JComponent {
 	
 	private Player player;
@@ -263,6 +257,7 @@ class Bottom extends JComponent {
 }
 
 // Paints the top panel
+@SuppressWarnings("serial")
 class Top extends JComponent {
 	
 	private GamePlay gamePlay;
@@ -282,7 +277,6 @@ class Top extends JComponent {
 		Room back = gamePlay.getMaze().getRooms()[gamePlay.getPlayerRow()][gamePlay.getPlayerCol()];
 		boolean backNorth = back.isNorth();
 		boolean backEast = back.isEast();
-		boolean backSouth = back.isSouth();
 		boolean backWest = back.isWest();
 		boolean frontNorth = true;
 		boolean frontEast = true;
@@ -311,7 +305,6 @@ class Top extends JComponent {
 			}
 			backNorth = back.isEast();
 			backEast = back.isSouth();
-			backSouth = back.isWest();
 			backWest = back.isNorth();
 		}
 		// South
@@ -325,7 +318,6 @@ class Top extends JComponent {
 			}
 			backNorth = back.isSouth();
 			backEast = back.isWest();
-			backSouth = back.isNorth();
 			backWest = back.isEast();
 		}
 		// West
@@ -339,7 +331,6 @@ class Top extends JComponent {
 			}
 			backNorth = back.isWest();
 			backEast = back.isNorth();
-			backSouth = back.isEast();
 			backWest = back.isSouth();
 		}
 		// Paints left wall

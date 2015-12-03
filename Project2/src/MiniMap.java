@@ -1,11 +1,11 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JComponent;
 
+@SuppressWarnings("serial")
 public class MiniMap extends JComponent implements Observer {
 	
 	private Maze maze;
@@ -19,7 +19,6 @@ public class MiniMap extends JComponent implements Observer {
 		rooms = startMaze.getRooms();
 		width = 200 / startMaze.getRow();
 		height = 200 / startMaze.getCol();
-		//this.setPreferredSize(new Dimension(350,200));
 	}
 	
 	public void paint(Graphics g) {
