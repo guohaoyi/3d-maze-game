@@ -222,6 +222,7 @@ class Bottom extends JComponent {
 		else
 			g2.setColor(Color.yellow);
 		g2.fillRect(30, 40, (200 * player.getCurrentHealth() / 100), 30);
+		this.repaint();
 	}
 
 }
@@ -357,10 +358,9 @@ class Top extends JComponent {
 		if ((!frontSouth) && (front.getTreasure() != null))
 			g.drawImage(front.getTreasure().getImage().getImage(), front.getTreasure().getxCoordinate(), front.getTreasure().getyCoordinate(), front.getTreasure().getWidth(), front.getTreasure().getHeight(), null);
 		// Paints monsters
-		if ((!frontSouth) && (front.getMonster() != null)) {
+		if ((!frontSouth) && (front.getMonster() != null))
 			g.drawImage(front.getMonster().getImage().getImage(), front.getMonster().getxCoordinate(), front.getMonster().getyCoordinate(), null);
-			this.repaint();
-		}
+		this.repaint();
 	}
 	
 }

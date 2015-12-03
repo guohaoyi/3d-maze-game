@@ -162,29 +162,37 @@ public class Monster extends Character implements Runnable {
 	
 	public void move() {
 		Room thisRoom = gamePlay.getMaze().getRooms()[row][col];
-		Room nextRoom = null;
+		Room nextRoom = thisRoom;
 		int newRow = row;
 		int newCol = col;
 		Random rand = new Random();
 		int num = rand.nextInt(100);
 		if (num < 50) {
 			if (row > gamePlay.getPlayerRow()) {
-				if ((!thisRoom.isNorth()) && (gamePlay.getMaze().getRooms()[row - 1][col].getMonster() == null))
-					nextRoom = gamePlay.getMaze().getRooms()[row - 1][col];
+				if ((!thisRoom.isNorth()) && (gamePlay.getMaze().getRooms()[row - 1][col].getMonster() == null) && (gamePlay.getMaze().getRooms()[row - 1][col].getPlayer() == null)) {
+					newRow = row - 1;
+					nextRoom = gamePlay.getMaze().getRooms()[newRow][col];
+				}
 			}
 			else if (row < gamePlay.getPlayerRow()) {
-				if ((!thisRoom.isSouth()) && (gamePlay.getMaze().getRooms()[row + 1][col].getMonster() == null))
+				if ((!thisRoom.isSouth()) && (gamePlay.getMaze().getRooms()[row + 1][col].getMonster() == null) && (gamePlay.getMaze().getRooms()[row + 1][col].getPlayer() == null)) {
+					newRow = row + 1;
 					nextRoom = gamePlay.getMaze().getRooms()[row + 1][col];
+				}
 			}
 		}
 		else {
 			if (col > gamePlay.getPlayerCol()) {
-				if ((!thisRoom.isWest()) && (gamePlay.getMaze().getRooms()[row][col - 1].getMonster() == null))
+				if ((!thisRoom.isWest()) && (gamePlay.getMaze().getRooms()[row][col - 1].getMonster() == null) && (gamePlay.getMaze().getRooms()[row][col - 1].getPlayer() == null)) {
+					newCol = col - 1;
 					nextRoom = gamePlay.getMaze().getRooms()[row][col - 1];
+				}
 			}
 			else if (col < gamePlay.getPlayerCol()) {
-				if ((!thisRoom.isEast()) && (gamePlay.getMaze().getRooms()[row][col + 1].getMonster() == null))
+				if ((!thisRoom.isEast()) && (gamePlay.getMaze().getRooms()[row][col + 1].getMonster() == null) && (gamePlay.getMaze().getRooms()[row][col + 1].getPlayer() == null)) {
+					newCol = col + 1;
 					nextRoom = gamePlay.getMaze().getRooms()[row][col + 1];
+				}
 			}
 		}
 		gamePlay.getMaze().getRooms()[row][col].setMonster(null);
@@ -238,7 +246,7 @@ public class Monster extends Character implements Runnable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//move();
+				move();
 			}
 		}
 		

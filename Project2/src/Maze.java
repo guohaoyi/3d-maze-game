@@ -55,7 +55,6 @@ public class Maze extends Observable {
 						monster = new Monster(name, image1, image2, xCoordinate, yCoordinate, health, damage, coolDownTime, probabilityAttack, probabilityDamage, gamePlay);
 						monster.setRow(i);
 						monster.setCol(j);
-						//(new Thread(monster)).start();
 					}
 					String treasureName = scan.nextLine();
 					int treasureIndex = treasureNames.indexOf(treasureName);

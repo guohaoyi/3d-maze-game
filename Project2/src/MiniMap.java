@@ -97,7 +97,7 @@ public class MiniMap extends JComponent implements Observer {
 					g.drawString("U", x + 15 + width * i, y + 25 + height * j);
 			}
 		}
-		
+		this.repaint();
 	}
 
 	public static void main(String[] args) {
