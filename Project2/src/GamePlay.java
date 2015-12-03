@@ -333,6 +333,7 @@ public class GamePlay {
 		boolean east = rooms[playerRow][playerCol].isEast();
 		boolean south = rooms[playerRow][playerCol].isSouth();
 		boolean west = rooms[playerRow][playerCol].isWest();
+		/*
 		if ((!north) && (playerRow > 0)) {
 			if (rooms[playerRow - 1][playerCol].getMonster() != null) {
 				rooms[playerRow - 1][playerCol].getMonster().setPlayerNearby(true);
@@ -357,6 +358,7 @@ public class GamePlay {
 				(new Thread(rooms[playerRow][playerCol - 1].getMonster())).start();
 			}
 		}
+		*/
 	}
 	
 	public void attack(Room room) {
@@ -365,42 +367,34 @@ public class GamePlay {
 		int attack = rand.nextInt(100);
 		if (attack < monster.getProbabilityDamage()) {
 			System.out.println("You hit the monster!");
-			int playerAttack = 10;
+			int playerAttack = 5;
 			monster.setHealth(monster.getHealth() - playerAttack);
 		}
 		else
 			System.out.println("You missed!");
-		if (monster.getHealth() <= 0) {
-			monster.setPlayerNearby(false);
+		if (monster.getHealth() <= 0)
 			room.setMonster(null);
-		}
 	}
 	
 	public void monsterAttack(Monster monster) {
-		Random rand = new Random();
-		int attack = rand.nextInt(100);
-		if (attack < monster.getProbabilityAttack()) {
-			System.out.println("Monster hit you!");
-			player.setCurrentHealth(player.getCurrentHealth() - monster.getDamage());
-			
-			try {
-				java.applet.AudioClip clip = java.applet.Applet.newAudioClip(new File("bin/bruh.wav").toURI().toURL());
-				clip.play();
-			} catch (java.net.MalformedURLException murle) {
-				System.out.println(murle);
-			}
-			
-			/*
-			try {
-				AudioClip clip = Applet.newAudioClip(new URL("http://www.mediacollege.com/downloads/sound-effects/money/cash-register-01.wav"));
-				clip.play();
-				} catch (MalformedURLException murle) {
-				System.out.println(murle);
+		if ((monster.getHealth() > 0) && (player.getCurrentHealth() > 0)) {
+			Random rand = new Random();
+			int attack = rand.nextInt(100);
+			if (attack < monster.getProbabilityAttack()) {
+				System.out.println("Monster hit you!");
+				player.setCurrentHealth(player.getCurrentHealth() - monster.getDamage());
+				
+				try {
+					java.applet.AudioClip clip = java.applet.Applet.newAudioClip(new File("bin/bruh.wav").toURI().toURL());
+					clip.play();
+				} catch (java.net.MalformedURLException murle) {
+					System.out.println(murle);
 				}
-				*/
+				
+			}
+			else
+				System.out.println("Monster tried to attack you but missed!");
 		}
-		else
-			System.out.println("Monster tried to attack you but missed!");
 	}
 	
 	public Room getNextRoom() {

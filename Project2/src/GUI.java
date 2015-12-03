@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -15,7 +17,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class GUI extends JFrame implements MouseListener {
+public class GUI extends JFrame implements MouseListener, KeyListener {
 	
 	private JPanel topPanel, bottomPanel, miniMapPanel;
 	public GamePlay gamePlay = new GamePlay();
@@ -67,6 +69,12 @@ public class GUI extends JFrame implements MouseListener {
 		miniMapPanel.add(miniMap, BorderLayout.CENTER);
 		
 		this.setVisible(true);
+		
+		int threadSize = gamePlay.getMaze().getThreads().size();
+		for (int i = 0; i < threadSize; i++) {
+			Thread thread = gamePlay.getMaze().getThreads().get(i);
+			thread.start();
+		}
 	}
 
 	@Override
@@ -151,6 +159,24 @@ public class GUI extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}

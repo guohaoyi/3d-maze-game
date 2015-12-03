@@ -10,6 +10,7 @@ public class Maze extends Observable {
 	private ArrayList<String> monsterNames = new ArrayList<String>();
 	private ArrayList<Treasure> treasures = new ArrayList<Treasure>();
 	private ArrayList<String> treasureNames = new ArrayList<String>();
+	private ArrayList<Thread> threads = new ArrayList<Thread>();
 	private Room[][] rooms;
 	private int row, col;
 	private GamePlay gamePlay;
@@ -37,11 +38,24 @@ public class Maze extends Observable {
 					scan.nextLine();
 					String monsterName = scan.nextLine();
 					int monsterIndex = monsterNames.indexOf(monsterName);
+					Monster monsterCopy = null;
 					Monster monster = null;
 					if (monsterIndex != -1) {
-						monster = monsters.get(monsterIndex);
+						monsterCopy = monsters.get(monsterIndex);
+						String name = monsterCopy.getName();
+						String image1 = monsterCopy.getImage1name();
+						String image2 = monsterCopy.getImage2name();
+						int xCoordinate = monsterCopy.getxCoordinate();
+						int yCoordinate = monsterCopy.getyCoordinate();
+						int health = monsterCopy.getHealth();
+						int damage = monsterCopy.getDamage();
+						int coolDownTime = monsterCopy.getCoolDownTime();
+						int probabilityAttack = monsterCopy.getProbabilityAttack();
+						int probabilityDamage = monsterCopy.getProbabilityDamage();
+						monster = new Monster(name, image1, image2, xCoordinate, yCoordinate, health, damage, coolDownTime, probabilityAttack, probabilityDamage, gamePlay);
 						monster.setRow(i);
 						monster.setCol(j);
+						//(new Thread(monster)).start();
 					}
 					String treasureName = scan.nextLine();
 					int treasureIndex = treasureNames.indexOf(treasureName);
@@ -53,7 +67,12 @@ public class Maze extends Observable {
 					boolean south = Boolean.parseBoolean(scan.nextLine());
 					boolean west = Boolean.parseBoolean(scan.nextLine());
 					String texture = scan.nextLine();
-					rooms[i][j] = new Room(monster, treasure, north, east, south, west, texture);
+					Room room = new Room(monster, treasure, north, east, south, west, texture);
+					rooms[i][j] = room;
+					if (room.getMonster() != null) {
+						Thread thread = new Thread(room.getMonster());
+						threads.add(thread);
+					}
 				}
 			}
 			scan.close();
@@ -116,6 +135,14 @@ public class Maze extends Observable {
 		} catch (FileNotFoundException e) {
 			System.out.println("Caught FileNotFoundException: " + e.getMessage());
 		}
+	}
+
+	public ArrayList<Thread> getThreads() {
+		return threads;
+	}
+
+	public void setThreads(ArrayList<Thread> threads) {
+		this.threads = threads;
 	}
 
 	public Room[][] getRooms() {
