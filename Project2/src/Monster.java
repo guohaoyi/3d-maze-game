@@ -223,11 +223,7 @@ public class Monster extends Character implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		//System.out.println("Greetings from a monster!");
-		//System.out.println("Row: " + row + ", Col: " + col);
-		//System.out.println(gamePlay.getPlayerRow() + " " + gamePlay.getPlayerCol());
-		
+		// TODO Auto-generated method stub		
 		while ((this.getHealth() > 0) && (gamePlay.getPlayer().getCurrentHealth() > 0)) {
 			if (playerNearBy()) {
 				gamePlay.monsterAttack(this);
@@ -251,35 +247,6 @@ public class Monster extends Character implements Runnable {
 				move();
 			}
 		}
-		
-		/*
-		Room room = gamePlay.getMaze().getRooms()[row][col];
-		Room north = null;
-		Room east = null;
-		Room south = null;
-		Room west = null;
-		if (row > 0)
-			north = gamePlay.getMaze().getRooms()[row - 1][col];
-		if (col < gamePlay.getMaze().getCol() - 1)
-			east = gamePlay.getMaze().getRooms()[row][col + 1];
-		if (row < gamePlay.getMaze().getRow() - 1)
-			south = gamePlay.getMaze().getRooms()[row + 1][col];
-		if (col > 0)
-			west = gamePlay.getMaze().getRooms()[row][col - 1];
-		while (((!room.isNorth()) && (north.getPlayer() != null)) || ((!room.isEast()) && (east.getPlayer() != null)) || ((!room.isSouth()) && (south.getPlayer() != null)) || ((!room.isWest()) && (west.getPlayer() != null))) {
-			gamePlay.monsterAttack(this);
-			if (image == image1)
-				image = image2;
-			else
-				image = image1;
-			try {
-				Thread.sleep(coolDownTime * 1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		*/
 	}
 	
 	public static void main(String[] args) {
