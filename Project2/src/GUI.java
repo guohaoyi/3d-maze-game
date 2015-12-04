@@ -83,35 +83,21 @@ public class GUI extends JFrame implements MouseListener, KeyListener {
     	if (room != null)
     		monster = (room.getMonster() != null);
     	if ((x >= 340) && (x <= 460) && (y >= 655) && (y <= 688)) {
-    		if (monster) {
-    			System.out.println("Attack");
-        		gamePlay.attack(room);
-    		}
+    		if (monster)
+    			gamePlay.attack(room);
     	}
-    	else if ((x >= 328) && (x <= 369) && (y >= 713) && (y <= 749)) {
-    		System.out.println("Turn left");
+    	else if ((x >= 328) && (x <= 369) && (y >= 713) && (y <= 749))
     		player.turnLeft();
-    	}
-    	else if ((x >= 380) && (x <= 418) && (y >= 713) && (y <= 756)) {
-    		System.out.println("Forward");
+    	else if ((x >= 380) && (x <= 418) && (y >= 713) && (y <= 756))
     		gamePlay.move("forward");
-    	}
-    	else if ((x >= 431) && (x <= 472) && (y >= 713) && (y <= 749)) {
-    		System.out.println("Turn right");
+    	else if ((x >= 431) && (x <= 472) && (y >= 713) && (y <= 749))
     		player.turnRight();
-    	}
-    	else if ((x >= 328) && (x <= 369) && (y >= 765) && (y <= 803)) {
-    		System.out.println("Leftward");
+    	else if ((x >= 328) && (x <= 369) && (y >= 765) && (y <= 803))
     		gamePlay.move("leftward");
-    	}
-    	else if ((x >= 380) && (x <= 418) && (y >= 765) && (y <= 806)) {
-    		System.out.println("Backward");
+    	else if ((x >= 380) && (x <= 418) && (y >= 765) && (y <= 806))
     		gamePlay.move("backward");
-    	}
-    	else if ((x >= 431) && (x <= 472) && (y >= 765) && (y <= 803)) {
-    		System.out.println("Rightward");
+    	else if ((x >= 431) && (x <= 472) && (y >= 765) && (y <= 803))
     		gamePlay.move("rightward");
-    	}
     	
     	boolean treasure = false;
     	if (room != null)
@@ -168,35 +154,21 @@ public class GUI extends JFrame implements MouseListener, KeyListener {
     	}
     	
 		if (e.getKeyChar() ==  ' ') {
-			if (monster) {
-    			System.out.println("Attack");
-        		gamePlay.attack(room);
-    		}
+			if (monster)
+				gamePlay.attack(room);
 		}
-		else if ((e.getKeyChar() == 'w') || (e.getKeyChar() == 'W') || (e.getKeyCode() == KeyEvent.VK_UP)) {
-			System.out.println("Forward");
-    		gamePlay.move("forward");
-		}
-		else if ((e.getKeyChar() == 's') || (e.getKeyChar() == 'S') || (e.getKeyCode() == KeyEvent.VK_DOWN)) {
-			System.out.println("Backward");
-    		gamePlay.move("backward");
-		}
-		else if ((e.getKeyChar() == 'a') || (e.getKeyChar() == 'A') || (e.getKeyCode() == KeyEvent.VK_LEFT)) {
-			System.out.println("Leftward");
-    		gamePlay.move("leftward");
-		}
-		else if ((e.getKeyChar() == 'd') || (e.getKeyChar() == 'D') || (e.getKeyCode() == KeyEvent.VK_RIGHT)) {
-			System.out.println("Rightward");
-    		gamePlay.move("rightward");
-		}
-		else if ((e.getKeyChar() == 'q') || (e.getKeyChar() == 'Q')) {
-			System.out.println("Turn left");
-    		player.turnLeft();
-		}
-		else if ((e.getKeyChar() == 'e') || (e.getKeyChar() == 'E')) {
-			System.out.println("Turn right");
-    		player.turnRight();
-		}
+		else if ((e.getKeyChar() == 'w') || (e.getKeyChar() == 'W') || (e.getKeyCode() == KeyEvent.VK_UP))
+			gamePlay.move("forward");
+		else if ((e.getKeyChar() == 's') || (e.getKeyChar() == 'S') || (e.getKeyCode() == KeyEvent.VK_DOWN))
+			gamePlay.move("backward");
+		else if ((e.getKeyChar() == 'a') || (e.getKeyChar() == 'A') || (e.getKeyCode() == KeyEvent.VK_LEFT))
+			gamePlay.move("leftward");
+		else if ((e.getKeyChar() == 'd') || (e.getKeyChar() == 'D') || (e.getKeyCode() == KeyEvent.VK_RIGHT))
+			gamePlay.move("rightward");
+		else if ((e.getKeyChar() == 'q') || (e.getKeyChar() == 'Q'))
+			player.turnLeft();
+		else if ((e.getKeyChar() == 'e') || (e.getKeyChar() == 'E'))
+			player.turnRight();
 		else if ((e.getKeyChar() == 't') || (e.getKeyChar() == 'T')) {
 			if (treasure)
 				gamePlay.pickUpTreasure(room);

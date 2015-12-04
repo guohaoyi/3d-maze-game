@@ -56,7 +56,10 @@ public class Player extends Character {
 				direction = 'e';
 			else if (direction == 'w')
 				direction = 's';
+			System.out.println("Turn left");
 		}
+		else
+			System.out.println("You are dead.");
 	}
 	
 	public void turnRight() {
@@ -69,7 +72,10 @@ public class Player extends Character {
 				direction = 'w';
 			else if (direction == 'w')
 				direction = 'n';
+			System.out.println("Turn right");
 		}
+		else
+			System.out.println("You are dead.");
 	}
 
 	public static void main(String[] args) {

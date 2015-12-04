@@ -1,5 +1,4 @@
 import java.io.File;
-import java.net.URL;
 import java.util.Random;
 
 public class GamePlay {
@@ -36,6 +35,7 @@ public class GamePlay {
 					moveSouth();
 				else if (player.getDirection() == 'w')
 					moveWest();
+				System.out.println("Forward");
 			}
 			else if (movement.equals("backward")) {
 				// Backward
@@ -47,6 +47,7 @@ public class GamePlay {
 					moveNorth();
 				else if (player.getDirection() == 'w')
 					moveEast();
+				System.out.println("Backward");
 			}
 			else if (movement.equals("leftward")) {
 				// Leftward
@@ -58,6 +59,7 @@ public class GamePlay {
 					moveEast();
 				else if (player.getDirection() == 'w')
 					moveSouth();
+				System.out.println("Leftward");
 			}
 			else if (movement.equals("rightward")) {
 				// Rightward
@@ -69,8 +71,11 @@ public class GamePlay {
 					moveWest();
 				else if (player.getDirection() == 'w')
 					moveNorth();
+				System.out.println("Rightward");
 			}
 		}
+		else
+			System.out.println("You are dead.");
 	}
 	
 	public void moveNorth() {
@@ -153,6 +158,7 @@ public class GamePlay {
 	
 	public void attack(Room room) {
 		if (player.getCurrentHealth() > 0) {
+			System.out.println("Attack");
 			Monster monster = room.getMonster();
 			Random rand = new Random();
 			int attack = rand.nextInt(100);
