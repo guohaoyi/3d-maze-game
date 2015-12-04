@@ -142,7 +142,7 @@ public class GamePlay {
 				System.out.println("You've got " + treasure.getHealth() + " health! Your current health is " + player.getCurrentHealth());
 			}
 			try {
-				java.applet.AudioClip clip = java.applet.Applet.newAudioClip(new URL("http://www.mediacollege.com/downloads/sound-effects/money/cash-register-01.wav"));
+				java.applet.AudioClip clip = java.applet.Applet.newAudioClip(new File("bin/treasure.wav").toURI().toURL());
 				clip.play();
 			} catch (java.net.MalformedURLException murle) {
 				System.out.println(murle);

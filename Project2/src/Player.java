@@ -47,25 +47,29 @@ public class Player extends Character {
 	}
 	
 	public void turnLeft() {
-		if (direction == 'n')
-			direction = 'w';
-		else if (direction == 'e')
-			direction = 'n';
-		else if (direction == 's')
-			direction = 'e';
-		else if (direction == 'w')
-			direction = 's';
+		if (getCurrentHealth() > 0) {
+			if (direction == 'n')
+				direction = 'w';
+			else if (direction == 'e')
+				direction = 'n';
+			else if (direction == 's')
+				direction = 'e';
+			else if (direction == 'w')
+				direction = 's';
+		}
 	}
 	
 	public void turnRight() {
-		if (direction == 'n')
-			direction = 'e';
-		else if (direction == 'e')
-			direction = 's';
-		else if (direction == 's')
-			direction = 'w';
-		else if (direction == 'w')
-			direction = 'n';
+		if (getCurrentHealth() > 0) {
+			if (direction == 'n')
+				direction = 'e';
+			else if (direction == 'e')
+				direction = 's';
+			else if (direction == 's')
+				direction = 'w';
+			else if (direction == 'w')
+				direction = 'n';
+		}
 	}
 
 	public static void main(String[] args) {
