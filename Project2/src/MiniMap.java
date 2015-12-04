@@ -1,12 +1,10 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JComponent;
 
 @SuppressWarnings("serial")
-public class MiniMap extends JComponent implements Observer {
+public class MiniMap extends JComponent {
 	
 	private Maze maze;
 	private Room[][] rooms;
@@ -102,12 +100,6 @@ public class MiniMap extends JComponent implements Observer {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		this.repaint();
 	}
 
 }
