@@ -131,7 +131,7 @@ public class GamePlay {
 	
 	public void pickUpTreasure(Room room) {
 		// Checks if there is a treasure in the room, if so, the player will pick up the treasure
-		if (room.getTreasure() != null) {
+		if ((room.getTreasure() != null) && (player.getCurrentHealth() > 0)) {
 			Treasure treasure = room.getTreasure();
 			if (treasure.getGold() != 0) {
 				player.increaseGold(treasure.getGold());
@@ -152,18 +152,20 @@ public class GamePlay {
 	}
 	
 	public void attack(Room room) {
-		Monster monster = room.getMonster();
-		Random rand = new Random();
-		int attack = rand.nextInt(100);
-		if (attack < monster.getProbabilityDamage()) {
-			System.out.println("You hit the monster!");
-			int playerAttack = 5;
-			monster.setHealth(monster.getHealth() - playerAttack);
+		if (player.getCurrentHealth() > 0) {
+			Monster monster = room.getMonster();
+			Random rand = new Random();
+			int attack = rand.nextInt(100);
+			if (attack < monster.getProbabilityDamage()) {
+				System.out.println("You hit the monster!");
+				int playerAttack = 5;
+				monster.setHealth(monster.getHealth() - playerAttack);
+			}
+			else
+				System.out.println("You missed!");
+			if (monster.getHealth() <= 0)
+				room.setMonster(null);
 		}
-		else
-			System.out.println("You missed!");
-		if (monster.getHealth() <= 0)
-			room.setMonster(null);
 	}
 	
 	public void monsterAttack(Monster monster) {
