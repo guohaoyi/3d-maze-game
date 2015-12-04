@@ -1,5 +1,5 @@
 import java.io.File;
-import java.net.*;
+import java.net.URL;
 import java.util.Random;
 
 public class GamePlay {

@@ -1,10 +1,9 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.Scanner;
 
-public class Maze extends Observable {
+public class Maze {
 	
 	private ArrayList<Monster> monsters = new ArrayList<Monster>();
 	private ArrayList<String> monsterNames = new ArrayList<String>();
